@@ -1,10 +1,10 @@
 <?php
 
-namespace PROJECT;
+namespace YIVDEV\WPSCHEDULLER;
 
 if (!defined('ABSPATH')) exit;
 
-use PROJECT\TaskInterface;
+use YIVDEV\WPSCHEDULLER\TaskInterface;
 
 /**
  * TestTask class as samble of realization

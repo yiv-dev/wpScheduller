@@ -1,6 +1,6 @@
 <?php
 
-namespace PROJECT;
+namespace YIVDEV\WPSCHEDULLER;
 
 if (!defined('ABSPATH')) exit;
 

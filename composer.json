@@ -21,7 +21,7 @@
   "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
-      "PROJECT\\": "src/"
+      "YIVDEV\\WPSCHEDULLER\\": "src/"
     }
   },
   "require": {

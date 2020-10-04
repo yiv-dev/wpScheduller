@@ -1,8 +1,8 @@
 <?php
 
-namespace PROJECT;
+namespace YIVDEV\WPSCHEDULLER;
 
-use PROJECT\TaskInterface;
+use YIVDEV\WPSCHEDULLER\TaskInterface;
 
 
 if (!defined('ABSPATH')) exit;
