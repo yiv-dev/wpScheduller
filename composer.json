@@ -18,7 +18,7 @@
   "require-dev": {
     "10up/wp_mock": "^0.4.2"
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
       "PROJECT\\": "src/"
