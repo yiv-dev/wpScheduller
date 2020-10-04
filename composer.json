@@ -1,0 +1,25 @@
+{
+  "name": "yiv-dev/wpScheduller",
+  "description": "helps add and remove the wpcron tasks",
+  "type": "wordpress-helper",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "YIV",
+      "email": "yugaev@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "10up/wp_mock": "^0.4.2"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "PROJECT\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.2.0",
+    "phpunit/phpunit": "^9"
+  }
+}
