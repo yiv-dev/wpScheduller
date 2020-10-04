@@ -14,7 +14,7 @@ $scheduler
 $scheduler->set_cron_task();
 ```
 
-#### You can create your task Clas:^
+#### You can create your task Clas:
 
 ```
 use YIVDEV\WPSCHEDULLER\TaskInterface;
