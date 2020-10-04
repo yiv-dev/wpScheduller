@@ -53,3 +53,10 @@ class TestTask implements TaskInterface
 $scheduler = new wpScheduller('test_task');
 $scheduler->remove_cron_task();
 ```
+
+## get the jobs
+
+```
+$scheduler = new wpScheduller('test_task');
+$scheduler->get_wpcron_jobs();
+```

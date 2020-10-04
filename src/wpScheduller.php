@@ -88,17 +88,15 @@ class wpScheduller
 
     /**
      * Get cron jobs function
-     *
-     * @param int $config_id
      * @return array
      */
-    public function get_wpcron_jobs()
+    public function get_wpcron_jobs(): array
     {
         $times = [];
         $cron_jobs = _get_cron_array();
         foreach ($cron_jobs as $key => $task) {
             if (isset($task[$this->slug])) {
-                $times[] = ['datetime' => get_date_from_gmt(date('Y-m-d H:i:s', $key), 'F j, Y H:i:s'), 'timestamp' => $key];
+                $times[] = ['datetime' => get_date_from_gmt(date('Y-m-d H:i:s', $key), 'F j, Y H:i:s'), 'timestamp' => $key, 'job' => $task];
             }
         }
         return $times;
