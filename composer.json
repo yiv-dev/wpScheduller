@@ -1,5 +1,5 @@
 {
-  "name": "yiv-dev/wpScheduller",
+  "name": "yiv-dev/wp-scheduller",
   "description": "helps add and remove the wpcron tasks",
   "type": "wordpress-helper",
   "license": "GPL-3.0",
