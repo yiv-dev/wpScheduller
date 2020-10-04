@@ -3,6 +3,12 @@
   "description": "helps add and remove the wpcron tasks",
   "type": "wordpress-helper",
   "license": "GPL-3.0",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/yiv-dev/wpScheduller"
+    }
+  ],
   "authors": [
     {
       "name": "YIV",
