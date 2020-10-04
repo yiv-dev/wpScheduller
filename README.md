@@ -1,17 +1,20 @@
 # wpScheduller
+
 ## add the task
+
 ```
 use YIVDEV\WPSCHEDULLER\wpScheduller;
 
 $scheduler = new wpScheduller('test_task');
 $scheduler
     ->setPeriod(10800)
-    ->setTaskClass('YIVDEV\\WPSCHEDULLER\\TestTask')
+    ->setTaskClass('Path\\to\\Your\\Task\\Class')
     ->setTaskClassParameters(['id' => 999]);
 
 $scheduler->set_cron_task();
 ```
-### You can create your task Class^
+
+#### You can create your task Clas:^
 
 ```
 use YIVDEV\WPSCHEDULLER\TaskInterface;
@@ -45,6 +48,7 @@ class TestTask implements TaskInterface
 ```
 
 ## remove the task
+
 ```
 $scheduler = new wpScheduller('test_task');
 $scheduler->remove_cron_task();
