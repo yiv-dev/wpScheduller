@@ -117,7 +117,7 @@ class wpScheduller
                 add_action($this->slug, [$this, 'run_task'], 50);
             }
         } catch (\Exception $e) {
-            throw new \Exception($e);
+            throw $e;
         }
     }
 
@@ -130,7 +130,7 @@ class wpScheduller
         try {
             add_action('init', [$this, 'remove_task'], 50);
         } catch (\Exception $e) {
-            throw new \Exception($e);
+            throw $e;
         }
     }
 
@@ -147,7 +147,7 @@ class wpScheduller
 
             return null === $result;
         } catch (\Exception $e) {
-            throw new \Exception($e);
+            throw $e;
         }
     }
 
@@ -167,7 +167,7 @@ class wpScheduller
             }
             return false;
         } catch (\Exception $e) {
-            throw new \Exception($e);
+            throw $e;
         }
     }
 
@@ -183,7 +183,7 @@ class wpScheduller
             }
             $taskObject->run();
         } catch (\Exception $e) {
-            throw new \Exception($e);
+            throw $e;
         }
     }
 
@@ -201,7 +201,7 @@ class wpScheduller
 
             return $args;
         } catch (\Exception $e) {
-            throw new \Exception($e);
+            throw $e;
         }
     }
 
@@ -219,7 +219,7 @@ class wpScheduller
 
             return $schedules;
         } catch (\Exception $e) {
-            throw new \Exception($e);
+            throw $e;
         }
     }
 
@@ -232,7 +232,7 @@ class wpScheduller
 
             return count($cron_tasks) > 0;
         } catch (\Exception $e) {
-            throw new \Exception($e);
+            throw $e;
         }
     }
 }

@@ -32,7 +32,7 @@ class TestTask implements TaskInterface
             $content = 'TEST CONTENT';
             file_put_contents($file, $content);
         } catch (\Exception $e) {
-            throw new \Exception($e);
+            throw $e;
         }
     }
 
@@ -41,7 +41,7 @@ class TestTask implements TaskInterface
         try {
             $this->id = $parameters['id'];
         } catch (\Exception $e) {
-            throw new \Exception($e);
+            throw $e;
         }
     }
 }
