@@ -128,7 +128,7 @@ class wpScheduller
     public function remove_cron_task(): void
     {
         try {
-            add_action('init', [$this, 'remove_task'], 50);
+            add_action('init', [$this, 'remove_task'], 49);
         } catch (\Exception $e) {
             throw $e;
         }
