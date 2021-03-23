@@ -4,8 +4,9 @@ namespace YIVDEV\WPSCHEDULLER;
 
 use YIVDEV\WPSCHEDULLER\TaskInterface;
 
-
-if (!defined('ABSPATH')) exit;
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 /**
  * wpScheduller class
@@ -111,7 +112,26 @@ class wpScheduller
         try {
             add_filter('cron_request', [$this, 'change_cron_scheme'], 10, 1);
             add_filter('cron_schedules', [$this, 'create_interval'], 50, 1);
-            add_action('init', [$this, 'add_task'], 50);
+            add_action('init', [$this, 'add_new_task'], 50);
+
+            if (defined('DOING_CRON') && DOING_CRON) {
+                add_action($this->slug, [$this, 'run_task'], 50);
+            }
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
+    /**
+     * Set the wp hook to add wpcron task if not exist cron task
+     *
+     */
+    public function set_cron_task_if_not_exist(): void
+    {
+        try {
+            add_filter('cron_request', [$this, 'change_cron_scheme'], 10, 1);
+            add_filter('cron_schedules', [$this, 'create_interval'], 50, 1);
+            add_action('init', [$this, 'add_new_task_if_not_exist'], 50);
 
             if (defined('DOING_CRON') && DOING_CRON) {
                 add_action($this->slug, [$this, 'run_task'], 50);
@@ -135,15 +155,34 @@ class wpScheduller
     }
 
     /**
+     * Add wpcron task if not exist in cron list.
+     * public because of wp hook
+     *
+     */
+    public function add_new_task_if_not_exist(): Bool
+    {
+        try {
+            if (!$this->is_task_in_cron()) {
+                $result = wp_schedule_event(time(), $this->slug, $this->slug);
+            }
+
+            return null === $result;
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
+
+    /**
      * Add wpcron task.
      * public because of wp hook
-     * 
+     *
      */
-    public function add_task(): Bool
+    public function add_new_task(): Bool
     {
         try {
             $this->remove_task();
-            $result = wp_schedule_event(time(), $this->slug, $this->slug); //from now , name of timeperiod, name of wpcron task
+            $result = wp_schedule_event(time(), $this->slug, $this->slug);
 
             return null === $result;
         } catch (\Exception $e) {
@@ -190,7 +229,7 @@ class wpScheduller
     /**
      * Register the wpcron timeout.
      * public because of wp hook
-     * 
+     *
      */
     public function change_cron_scheme(array $args): array
     {
