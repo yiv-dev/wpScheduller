@@ -162,6 +162,7 @@ class wpScheduller
     public function add_new_task_if_not_exist(): Bool
     {
         try {
+            $result = null;
             if (!$this->is_task_in_cron()) {
                 $result = wp_schedule_event(time(), $this->slug, $this->slug);
             }
